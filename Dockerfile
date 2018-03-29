@@ -86,8 +86,6 @@ RUN set -ex \
   && gem install bundler --version "$BUNDLER_VERSION" --force \
   && rm -r /root/.gem/
 
-# install things globally, for great justice
-# and don't create ".bundle" in all our apps
 ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_PATH="$GEM_HOME" \
   BUNDLE_BIN="$GEM_HOME/bin" \
@@ -99,6 +97,10 @@ RUN apk add --update \
   build-base \
   libxml2-dev \
   libxslt-dev \
+  git \
+  nodejs \
+  ffmpeg \
+  ffmpegthumbnailer \
   && rm -rf /var/cache/apk/*
 
 RUN bundle config build.nokogiri --use-system-libraries
