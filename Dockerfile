@@ -108,4 +108,6 @@ RUN bundle config build.nokogiri --use-system-libraries
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
   && chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
+RUN gem install rails $RAILS_VERSION --no-ri --no-rdoc
+
 CMD [ "/bin/sh" ]
