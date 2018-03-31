@@ -103,7 +103,8 @@ RUN apk add --update \
   ffmpegthumbnailer \
   && rm -rf /var/cache/apk/*
 
-RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle config build.nokogiri --use-system-libraries \
+                                 --path $BUNDLE_PATH
 
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
   && chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
